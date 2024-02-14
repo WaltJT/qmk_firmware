@@ -39,50 +39,52 @@ enum custom_keycodes {
   EMOJIS,
   EMOJIS2
 };
-         
+
 // Tap Dance declarations
 enum {
     TD_ESC_CAPS,
     TD_RALT_LALT,
     TD_HOME_END,
-    TD_LCTL_AT,
+    TD_LCTL_LGUI,
+    TD_WH_U_WH_D,
 };
 
 enum unicode_names {
   BKSLH, // Backslash '( \ )'
-  CIRC,  // Circa ^
+  CIRC, // Circa ^
+  AT, // Arroba @
 
-  GRIN,  // grinning face 😊
-  TJOY,  // tears of joy 😂
+  GRIN, // grinning face 😊
+  TJOY, // tears of joy 😂
   SMILE, // grining face with smiling eyes 😁
   HEART, // heart ❤
   EYERT, // smiling face with heart shaped eyes 😍
-  CRY,   // crying face 😭
+  CRY, // crying face 😭
   SMEYE, // smiling face with smiling eyes 😊
   UNAMU, // unamused 😒
-  KISS,  // kiss 😘
+  KISS, // kiss 😘
   HART2, // two hearts 💕
   WEARY, // weary 😩
   OKHND, // ok hand sign 👌
   PENSV, // pensive 😔
   SMIRK, // smirk 😏
   RECYC, // recycle ♻
-  WINK,  // wink 😉
+  WINK, // wink 😉
   THMUP, // thumb up 👍
   THMDN, // thumb down 👎
-  PRAY,  // pray 🙏
-  PHEW,  // relieved 😌
+  PRAY, // pray 🙏
+  PHEW, // relieved 😌
   MUSIC, // musical notes
   FLUSH, // flushed 😳
   CELEB, // celebration 🙌
-  CRY2,  // crying face 😢
-  COOL,  // smile with sunglasses 😎
+  CRY2, // crying face 😢
+  COOL, // smile with sunglasses 😎
   NOEVS, // see no evil 🙈
   NOEVH, // hear no evil 🙉
   NOEVK, // speak no evil 🙊
-  POO,   // pile of poo 💩
-  EYES,  // eyes 👀
-  VIC,   // victory hand ✌️
+  POO, // pile of poo 💩
+  EYES, // eyes 👀
+  VIC, // victory hand ✌️
   BHART, // broken heart 💔
   SLEEP, // sleeping face 😴
   SMIL2, // smiling face with open mouth & sweat 😅
@@ -91,40 +93,37 @@ enum unicode_names {
   TONGU, // face with tongue & winking eye 😜
   DISAP, // disappointed 😞
   YUMMY, // face savoring delicious food 😋
-  CLAP,  // hand clapping 👏
-  FEAR,  // face screaming in fear 😱
+  CLAP, // hand clapping 👏
+  FEAR, // face screaming in fear 😱
   HORNS, // smiling face with horns 😈
-  HALO,  // smiling face with halo 😇
-  BYE,   // waving hand 👋
-  SUN,   // sun ☀️
-  MOON,  // moon 🌙
+  HALO, // smiling face with halo 😇
+  BYE, // waving hand 👋
+  SUN, // sun ☀️
+  MOON, // moon 🌙
   SKULL, // skull 💀
-  ROLF,  // Risa a carcajadas 🤣
-  ZIPP,  // Zipper-mouthface 🤐
-  RAT,   // Rat 🐀
-  COW,   //Cow 🐄
+  ROLF, // Risa a carcajadas 🤣
+  ZIPP, // Zipper-mouthface 🤐
+  RAT, // Rat 🐀
+  COW, //Cow 🐄
   ELEPH, //Elephant 🐘
-  DOG,   //Dog 🐕
-  HRS,   //Horse 🐎
-  BEER,  //Beer 🍺
-  DRK,   //Clinking glasses (Drinks) 🥂
-  BTL,   //bottle with popping cork 🍾
-  JYT,   //Joystick 🎮
-  PLC,   //Police officer 👮
-  NOTE,  //Notebook 💻
-  MNY,   //Heavy dollar sign (Money) 💲
-  SHW,   //Shower 🛁
-  CFC,   //Confounded face
-  PNC,   //Punch
-  MLW,   //Man lifting weights	
-  PWP,   //Paw prints
+  DOG, //Dog 🐕
+  HRS, //Horse 🐎
+  BEER, //Beer 🍺
+  DRK, //Clinking glasses (Drinks) 🥂
+  BTL, //bottle with popping cork 🍾
+  JYT, //Joystick 🎮
+  PLC, //Police officer 👮
+  NOTE, //Notebook 💻
+  MNY, //Heavy dollar sign (Money) 💲
+  SHW, //Shower 🛁
 
 };
 
 const uint32_t PROGMEM unicode_map[] = {
   [BKSLH] = 0x005C,
   [CIRC] = 0x005E,
-    
+  [AT] = 0x0040,
+  
   [GRIN] = 0x1F600,
   [TJOY] = 0x1F602,
   [SMILE] = 0x1F601,
@@ -187,12 +186,9 @@ const uint32_t PROGMEM unicode_map[] = {
   [NOTE] = 0X1F4BB,
   [MNY] = 0X1F4B2,
   [SHW] = 0X1F6C1,
-  [CFC] = 0X1F616,
-  [PNC] = 0X1F44A,
-  [MLW] = 0X1F3CB,
-  [PWP] = 0X1F43E,
-
+  
 };
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT(
@@ -201,9 +197,9 @@ TD(TD_ESC_CAPS),  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                     
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
 LSFT_T(KC_LBRC),  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_ENT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-TD(TD_LCTL_AT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_TAB, 
+TD(TD_LCTL_LGUI), KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_TAB, 
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                    KC_LGUI , TT(_SIMBOLS),  KC_SPC,     KC_SPC,TT(_NAVIGATE), TD(TD_RALT_LALT)
+                         KC_LGUI, TG(_SIMBOLS),LT(_SIMBOLS, KC_SPC),   LT(_NAVIGATE, KC_SPC),TG(_NAVIGATE), TD(TD_RALT_LALT)
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -212,23 +208,23 @@ TD(TD_LCTL_AT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_ESC, KC_MINS,   KC_AT, KC_HASH,  KC_DLR, KC_NUBS,                      KC_PERC, KC_CIRC, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------| 
-      KC_LSFT, KC_PGUP,   KC_UP, KC_PGDN, KC_RCBR, KC_AMPR,                       KC_EQL, KC_PLUS, KC_QUOT, KC_BSLS, X(CIRC),  KC_ENT,
+      KC_LSFT, KC_PGUP,   KC_UP, KC_PGDN, KC_AMPR,X(BKSLH),                       KC_EQL, KC_PLUS, KC_QUOT, KC_BSLS, X(CIRC),  KC_ENT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, KC_LEFT, KC_DOWN, KC_RIGHT, KC_GRV,X(BKSLH),                      KC_UNDS, KC_EXLM,  KC_DQT, KC_PIPE,RALT(KC_Q),KC_TAB, 
+      KC_LCTL, KC_LEFT, KC_DOWN, KC_RIGHT,KC_RCBR,  KC_GRV,                      KC_UNDS, KC_EXLM,  KC_DQT, KC_PIPE,   X(AT),  KC_TAB, 
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______,  KC_SPC,     KC_SPC,TT(_ADJUST), TD(TD_RALT_LALT)
+                                          KC_LGUI, _______,  KC_SPC,  LT(_ADJUST, KC_SPC),TG(_ADJUST), TD(TD_RALT_LALT)
                                       //`--------------------------'  `--------------------------'
   ),
   
     [_NAVIGATE] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC, KC_PGUP,   KC_UP, KC_PGDN, KC_MENU, KC_PSCR,                      KC_PSLS,    KC_1,    KC_2,    KC_3, KC_PPLS, KC_BSPC,
+       KC_ESC, KC_PGUP,   KC_UP, KC_PGDN,   KC_F5, KC_PSCR,                      KC_PSLS,    KC_1,    KC_2,    KC_3, KC_PPLS, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------| 
-      KC_LSFT, KC_LEFT, KC_DOWN,KC_RIGHT, KC_AGIN,TD(TD_HOME_END),               KC_PAST,    KC_4,    KC_5,    KC_6, KC_PMNS,  KC_ENT,  
+      KC_LSFT, KC_LEFT, KC_DOWN,KC_RIGHT,TD(TD_WH_U_WH_D),TD(TD_HOME_END),       KC_PAST,    KC_4,    KC_5,    KC_6, KC_PMNS,  KC_ENT,  
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
 TD(TD_RALT_LALT), KC_CALC, KC_PEQL, KC_MUTE, KC_VOLD, KC_VOLU,                   KC_PCMM,    KC_7,    KC_8,    KC_9,    KC_0, KC_LCTL,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                      KC_LGUI, TT(_DVORAK),  KC_SPC,     KC_SPC, _______, KC_DEL
+                           KC_LGUI, TG(_DVORAK),LT(_DVORAK, KC_SPC),     KC_SPC, _______, KC_DEL
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -240,7 +236,7 @@ TD(TD_RALT_LALT), KC_CALC, KC_PEQL, KC_MUTE, KC_VOLD, KC_VOLU,                  
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD, RGB_M_G,                     RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD, RGB_TOG,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______,  KC_SPC,     KC_SPC, _______, TT(_EMOJIS)
+                             LT(_EMOJIS, KC_LGUI), _______,  KC_SPC,     KC_SPC, _______, TG(_EMOJIS)
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -250,7 +246,7 @@ TD(TD_ESC_CAPS),KC_MINS,KC_COMM,  KC_DOT,    KC_P,    KC_Y,                     
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
 LSFT_T(KC_LBRC),  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                         KC_D,    KC_H,    KC_T,    KC_N,    KC_S,  KC_ENT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-TD(TD_LCTL_AT),KC_LABK,    KC_Q,    KC_J,    KC_K,    KC_X,                         KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,  KC_TAB,
+TD(TD_LCTL_LGUI),KC_LABK, KC_Q,     KC_J,    KC_K,    KC_X,                         KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,  KC_TAB,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI, _______,  KC_SPC,     KC_SPC, _______, TD(TD_RALT_LALT)
                                       //`--------------------------'  `--------------------------'
@@ -261,11 +257,11 @@ TD(TD_LCTL_AT),KC_LABK,    KC_Q,    KC_J,    KC_K,    KC_X,                     
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_ESC, X(GRIN),X(SMILE),X(EYERT),X(HEART),  X(CRY),                     X(SMILE),X(UNAMU), X(KISS),X(TJOY), X(WEARY), KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     X(RECYC),  X(CFC), X(WINK), X(COOL),X(OKHND),X(THMUP),                       X(SUN), X(PHEW),X(FLUSH),X(TONGU),X(SLEEP),  KC_ENT,
+ LT(6, KC_NO),X(RECYC), X(WINK), X(COOL),X(OKHND),X(THMUP),                       X(SUN), X(PHEW),X(FLUSH),X(TONGU),X(SLEEP),  KC_ENT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      X(CONFU), X(PRAY), X(FEAR), X(ROLF),  X(POO),X(PENSV),                     X(SMEYE),X(SMIRK),X(BHART),X(DISAP),X(YUMMY),  KC_TAB,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                      X(PNC), TT(_EMOJIS2),  KC_SPC,     KC_SPC, _______, _______
+                                     _______, TG(_EMOJIS2),  KC_SPC,     KC_SPC, _______, _______
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -273,11 +269,11 @@ TD(TD_LCTL_AT),KC_LABK,    KC_Q,    KC_J,    KC_K,    KC_X,                     
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        X(VIC),X(HORNS), X(HALO), X(ZIPP),X(HART2), X(CRY2),                     X(SMIL2),X(MUSIC),X(NOEVS),X(NOEVH),X(NOEVK), KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       X(PWP),  X(COW),  X(DOG), X(BEER),X(HUNRD),X(THMDN),                      X(MOON),X(SKULL),  X(DRK), X(NOTE),  X(BTL),  KC_ENT,
+      _______,  X(COW),  X(DOG), X(BEER),X(HUNRD),X(THMDN),                      X(MOON),X(SKULL),  X(DRK), X(NOTE),  X(BTL),  KC_ENT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        X(RAT),X(ELEPH),  X(HRS),  X(PLC),X(CELEB), X(CLAP),                      X(EYES),  X(BYE),  X(MNY),  X(SHW),  X(JYT),  KC_TAB,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           X(MLW), _______,  KC_SPC,     KC_SPC, _______, _______
+                                          _______, _______,  KC_SPC,     KC_SPC, _______, _______
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -290,7 +286,8 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS),
     [TD_RALT_LALT] = ACTION_TAP_DANCE_DOUBLE(KC_RALT, KC_LALT),
     [TD_HOME_END] = ACTION_TAP_DANCE_DOUBLE(KC_HOME, KC_END), 
-    [TD_LCTL_AT] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, RALT(KC_Q)),
+    [TD_LCTL_LGUI] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_LGUI),
+    [TD_WH_U_WH_D] = ACTION_TAP_DANCE_DOUBLE(KC_WH_U, KC_WH_D),
 
 };
 
@@ -451,7 +448,6 @@ __attribute__((weak)) void oled_render_logo(void) {
     // clang-format on
     oled_write_P(crkbd_logo, false);
 }
-
 */
 
 void oled_render_logo(void) {
@@ -491,7 +487,8 @@ void oled_render_logo(void) {
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
     };
     oled_write_raw_P(mb_logo, sizeof(mb_logo));
-    
+    //oled_set_cursor(oled_max_chars()/2,oled_max_lines()/2);
+    //oled_write_P(PSTR("R2G"), false);
 }
 
 bool oled_task_kb(void) {
@@ -511,17 +508,6 @@ bool oled_task_kb(void) {
 //CRKBD END
 
 /*
-
-EJEMPLO MT
-
-#define KC_ESCC MT(MOD_LCTL, KC_ESC)
-#define KC_ENTS MT(MOD_LSFT, KC_ENT)
-#define KC_FN   MO(_FN) //_FN es una capa, esta definido de esa manera.
-
-*/
-
-/*
-
 #ifdef RGB_MATRIX_ENABLE
 
 void suspend_power_down_user(void) {
@@ -533,8 +519,8 @@ void suspend_wakeup_init_user(void) {
 }
 
 #endif
-
 */
+
 
 // RGB_MODE_PLAIN	RGB_M_P 	Modo estático (sin animación)
 // RGB_MODE_BREATHE	RGB_M_B	    Modo de animación de respiración

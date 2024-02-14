@@ -21,8 +21,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define NO_MUSIC_MODE
 
-#define MASTER_RIGHT
-
 #ifdef RGB_MATRIX_ENABLE
 #    define RGB_MATRIX_LED_COUNT 54
 #    define RGB_MATRIX_SPLIT \
@@ -53,8 +51,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #define TAPPING_TERM 180    
-
-#define PERMISSIVE_HOLD
 
 #define SPLIT_USB_DETECT
 
