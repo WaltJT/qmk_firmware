@@ -203,9 +203,8 @@ LSFT_T(KC_LBRC),  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                     
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
 TD(TD_LCTL_AT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_TAB, 
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                    KC_LGUI , TT(_SIMBOLS),  KC_SPC,     KC_SPC,TT(_NAVIGATE), TD(TD_RALT_LALT)
+                        KC_LGUI , TT(_SIMBOLS),LT(_SIMBOLS, KC_SPC),   LT(_NAVIGATE, KC_SPC),TT(_NAVIGATE), TD(TD_RALT_LALT)
                                       //`--------------------------'  `--------------------------'
-
   ),
 
    [_SIMBOLS] = LAYOUT( 
@@ -216,7 +215,7 @@ TD(TD_LCTL_AT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL, KC_LEFT, KC_DOWN, KC_RIGHT, KC_GRV,X(BKSLH),                      KC_UNDS, KC_EXLM,  KC_DQT, KC_PIPE,RALT(KC_Q),KC_TAB, 
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______,  KC_SPC,     KC_SPC,TT(_ADJUST), TD(TD_RALT_LALT)
+                                      KC_LGUI, TT(_ADJUST),  KC_SPC,   LT(_EMOJIS, KC_SPC), TT(_EMOJIS), TD(TD_RALT_LALT)
                                       //`--------------------------'  `--------------------------'
   ),
   
@@ -228,7 +227,7 @@ TD(TD_LCTL_AT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
 TD(TD_RALT_LALT), KC_CALC, KC_PEQL, KC_MUTE, KC_VOLD, KC_VOLU,                   KC_PCMM,    KC_7,    KC_8,    KC_9,    KC_0, KC_LCTL,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                      KC_LGUI, TT(_DVORAK),  KC_SPC,     KC_SPC, _______, KC_DEL
+                              KC_LGUI, XXXXXXX,LT(_ADJUST, KC_SPC),     KC_SPC, TT(_DVORAK), KC_DEL
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -240,7 +239,7 @@ TD(TD_RALT_LALT), KC_CALC, KC_PEQL, KC_MUTE, KC_VOLD, KC_VOLU,                  
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD, RGB_M_G,                     RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD, RGB_TOG,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______,  KC_SPC,     KC_SPC, _______, TT(_EMOJIS)
+                                        KC_LGUI,TO(_QWERTY), KC_SPC,     KC_SPC, XXXXXXX, KC_DEL
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -252,7 +251,7 @@ LSFT_T(KC_LBRC),  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                     
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
 TD(TD_LCTL_AT),KC_LABK,    KC_Q,    KC_J,    KC_K,    KC_X,                         KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,  KC_TAB,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______,  KC_SPC,     KC_SPC, _______, TD(TD_RALT_LALT)
+                                          KC_LGUI, XXXXXXX,  KC_SPC,     KC_SPC,TO(_QWERTY),TD(TD_RALT_LALT)
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -265,23 +264,23 @@ TD(TD_LCTL_AT),KC_LABK,    KC_Q,    KC_J,    KC_K,    KC_X,                     
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      X(CONFU), X(PRAY), X(FEAR), X(ROLF),  X(POO),X(PENSV),                     X(SMEYE),X(SMIRK),X(BHART),X(DISAP),X(YUMMY),  KC_TAB,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                      X(PNC), TT(_EMOJIS2),  KC_SPC,     KC_SPC, _______, _______
+                              X(PNC), XXXXXXX,LT(_EMOJIS2, KC_SPC),    _______,TT(_EMOJIS2),  KC_DEL
                                       //`--------------------------'  `--------------------------'
   ),
 
     [_EMOJIS2] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       X(VIC),X(HORNS), X(HALO), X(ZIPP),X(HART2), X(CRY2),                     X(SMIL2),X(MUSIC),X(NOEVS),X(NOEVH),X(NOEVK), KC_BSPC,
+       KC_ESC,X(HORNS), X(HALO), X(ZIPP),X(HART2), X(CRY2),                     X(SMIL2),X(MUSIC),X(NOEVS),X(NOEVH),X(NOEVK), KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        X(PWP),  X(COW),  X(DOG), X(BEER),X(HUNRD),X(THMDN),                      X(MOON),X(SKULL),  X(DRK), X(NOTE),  X(BTL),  KC_ENT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        X(RAT),X(ELEPH),  X(HRS),  X(PLC),X(CELEB), X(CLAP),                      X(EYES),  X(BYE),  X(MNY),  X(SHW),  X(JYT),  KC_TAB,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           X(MLW), _______,  KC_SPC,     KC_SPC, _______, _______
+                                           X(MLW),  X(VIC), _______,     KC_SPC,TO(_QWERTY), KC_DEL   
                                       //`--------------------------'  `--------------------------'
   ),
 
-};
+  };
 
 // Tap Dance definitions
 tap_dance_action_t tap_dance_actions[] = {
@@ -522,14 +521,30 @@ EJEMPLO MT
 
 /*
 
+//Esto hace que se apaguen las luces y el OLED tras 20 mins de inactividad (no funciono)
+#include "timer.h"
+
+bool rgb_matrix_suspended = false;
+uint32_t last_activity_time = 0;
+
 #ifdef RGB_MATRIX_ENABLE
 
 void suspend_power_down_user(void) {
-    rgb_matrix_set_suspend_state(true);
+    if (timer_elapsed(last_activity_time) > (20 * 60000)) { // 20 minutos en milisegundos (20 * 60 * 1000)
+        rgb_matrix_set_suspend_state(true);
+        rgb_matrix_suspended = true;
+    }
 }
 
 void suspend_wakeup_init_user(void) {
-    rgb_matrix_set_suspend_state(false);
+    if (rgb_matrix_suspended) {
+        rgb_matrix_set_suspend_state(false);
+        rgb_matrix_suspended = false;
+    }
+}
+
+void matrix_scan_user(void) {
+    last_activity_time = timer_read32();
 }
 
 #endif
