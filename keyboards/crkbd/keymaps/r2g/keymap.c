@@ -114,10 +114,10 @@ enum unicode_names {
   NOTE,  //Notebook 💻
   MNY,   //Heavy dollar sign (Money) 💲
   SHW,   //Shower 🛁
-  CFC,   //Confounded face
-  PNC,   //Punch
-  MLW,   //Man lifting weights	
-  PWP,   //Paw prints
+  CFC,   //Confounded face 😖
+  PNC,   //Punch 👊
+  MLW,   //Man lifting weights 🏋
+  PWP,   //Paw prints 🐾
 
 };
 
