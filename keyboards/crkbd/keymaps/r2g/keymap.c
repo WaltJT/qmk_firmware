@@ -119,13 +119,11 @@ enum unicode_names {
   /* PLC,   //Police officer 👮
   NOTE,  //Notebook 💻
   MNY,   //Heavy dollar sign (Money) 💲
-  SHW,   //Shower 🛁 */
-  CFC,   //Confounded face 😖
-  PNC,   //Punch 👊
-  MLW,   //Man lifting weights 🏋
-  PWP,   //Paw prints 🐾
-  KISS2, //kiss men and woman
-  FLX,   // flexed biceps
+  SHW,   //Shower 🛁
+  CFC,   //Confounded face
+  PNC,   //Punch
+  MLW,   //Man lifting weights
+  PWP,   //Paw prints
 
 };
 
