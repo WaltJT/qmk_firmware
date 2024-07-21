@@ -51,7 +51,8 @@ enum {
     TD_LGUI,
     TD_KCDC,
     TD_BRG,
-    TD_SW,
+    TD_NPT,
+    TD_VOL,
 
 };
 
@@ -275,7 +276,7 @@ LSFT_T(KC_LBRC),  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                     
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, KC_LEFT, KC_DOWN,KC_RIGHT, KC_AGIN,TD(TD_HOME_END),               KC_PAST,    KC_4,    KC_5,    KC_6, KC_PMNS,  KC_ENT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, KC_MUTE,TD(TD_BRG),KC_VOLD,KC_VOLU,TD(TD_SW),                 TD(TD_KCDC),    KC_7,    KC_8,    KC_9,    KC_0,  KC_TAB,
+      KC_LCTL, KC_MUTE,TD(TD_BRG),KC_MPLY,TD(TD_NPT),TD(TD_VOL),             TD(TD_KCDC),    KC_7,    KC_8,    KC_9,    KC_0,  KC_TAB,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                    TD(TD_LGUI), TT(_EMOJIS), KC_SPC,   LT(_EMOJIS, KC_SPC), TO(_QWERTY), TD(TD_ALTLR)
                                       //`--------------------------'  `--------------------------'
@@ -396,8 +397,9 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_VWIN] = ACTION_TAP_DANCE_DOUBLE(KC_V, LGUI(KC_V)),
     [TD_LGUI] = ACTION_TAP_DANCE_DOUBLE(KC_LGUI, LGUI(KC_TAB)),
     [TD_KCDC] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_COMM),
-    [TD_SW] = ACTION_TAP_DANCE_DOUBLE(KC_WAKE, KC_SLEP),
+    [TD_NPT] = ACTION_TAP_DANCE_DOUBLE(KC_MNXT, KC_MPRV),
     [TD_BRG] = ACTION_TAP_DANCE_DOUBLE(KC_BRIU, KC_BRID),
+    [TD_VOL] = ACTION_TAP_DANCE_DOUBLE(KC_VOLU, KC_VOLD),
 
 };
 
